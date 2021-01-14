@@ -55,7 +55,7 @@ namespace Snake
             return p.x == this.x && p.y == this.y;
         }
         
-        public void Drow()
+        public void Draw()
         {
             Console.SetCursorPosition(x, y);
             Console.WriteLine(sym);
@@ -64,7 +64,7 @@ namespace Snake
         public void Clear()
         {
             sym = ' ';
-            Drow();
+            Draw();
         }
 
         public override string ToString()
