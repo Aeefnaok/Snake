@@ -10,15 +10,8 @@ namespace Snake
     {
         static void Main(string[] args)
          {
-            /*Point p1 = new Point(1, 3, '*');
-            p1.Draw();*/
-
-            Point p = new Point(4, 5, '*');
-            /*p2.Draw();*/
-
-            Snake snake = new Snake(p, 4, Direction.RIGHT);
-            snake.Drow();
-
+            
+            //Отрисовка рамочки
             HorizontalLine upLine = new HorizontalLine(0, 78, 0, '+');
             HorizontalLine downLine = new HorizontalLine(0, 78, 24, '+');
             VerticalLine leftLine = new VerticalLine(0, 24, 0, '+');
@@ -27,6 +20,24 @@ namespace Snake
             downLine.Drow();
             leftLine.Drow();
             rightLine.Drow();
+         
+            //Отрисовка точек
+            Point p = new Point(4, 5, '*');
+            /*p.Draw();*/
+            Snake snake = new Snake(p, 4, Direction.RIGHT);
+            snake.Drow();
+
+            while(true)
+            {
+                if(Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo key = Console.ReadKey();
+                    snake.HandleKey(key.Key);
+                }
+
+                System.Threading.Thread.Sleep(100);
+                snake.Move();
+            }
 
             Console.ReadLine();
         }
