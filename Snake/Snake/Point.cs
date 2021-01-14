@@ -49,8 +49,13 @@ namespace Snake
                 y = y + offset;
             }
         }
+
+        public bool IsHit(Point p)
+        {
+            return p.x == this.x && p.y == this.y;
+        }
         
-        public void Draw()
+        public void Drow()
         {
             Console.SetCursorPosition(x, y);
             Console.WriteLine(sym);
@@ -59,7 +64,7 @@ namespace Snake
         public void Clear()
         {
             sym = ' ';
-            Draw();
+            Drow();
         }
 
         public override string ToString()
